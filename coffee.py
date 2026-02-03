@@ -3,14 +3,23 @@ def main():
     
     total_paid = 0
     ammount_due = 75
+    valid_coins = [50, 20, 10, 5]
 
     while total_paid < ammount_due:
-        coin = int(input("please input a coin: "))
+        try:
+            coin = int(input("please input a coin: "))
         
-        if coin in [50,20,10,5]:
-           total_paid += coin
-        if total_paid < ammount_due:
-            print(f"ammount due: {ammount_due - total_paid}p")
+            if coin in [50,20,10,5]:
+                total_paid += coin
+            if total_paid < ammount_due:
+                print(f"ammount due: {ammount_due - total_paid}p")
+
+
+            else:
+                print("invalid input")
+        except ValueError:
+            print("invalid input")
+    
 
     change = total_paid - ammount_due
 
